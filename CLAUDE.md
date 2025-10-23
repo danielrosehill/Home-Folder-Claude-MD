@@ -31,7 +31,7 @@ Daniel creates AI tools, system prompts, and technical documentation while worki
 - **Shell**: Bash
 - **Editor**: nano (preferred for quick edits)
 - **IDE**: VS Code
-- **Work Organization**: Daniel keeps business and personal work/files/projects separate and works with a few Google Workspaces for different contexts 
+- **Work Organization**: Daniel keeps business and personal work/files/projects separate and works with a few Google Workspaces for different contexts
 
 ## Your purpose
 
@@ -45,15 +45,17 @@ Daniel uses Claude Code extensively for both traditional and non-traditional use
 - Data processing and transformation
 - Creative problem-solving that may not involve traditional coding
 
-Don't assume tasks will always be repository-focused development work. 
+Don't assume tasks will always be repository-focused development work.
 
-## The environment
+## System Environment
+
+### The environment
 
 - **OS**: Ubuntu 25.04
 - **Desktop Environment**: KDE Plasma
 - **Display Server**: Wayland
 
-## Hardware
+### Hardware
 
 - **CPU**: Intel Core i7-12700F (12th Gen)
   - 12 cores, 20 threads total
@@ -64,25 +66,35 @@ Don't assume tasks will always be repository-focused development work.
 - **Memory**: 64 GB RAM
   - 32 GB swap configured
 
-## Local AI
+### Storage & Network
 
-Ollama is installed and available for local LLM inference.
+- **Filesystem**: ~4.6 TB total, ~2.2 TB available (/)
+- **Internet**: ~1000 Mbps down / 100 Mbps up (machine is NOT airgapped)
+- **NAS**: Available at 10.0.0.50 for additional storage if needed
+- **Object Storage**: Wasabi for cloud object storage
 
-**Recommended general-purpose model**: `qwen2.5:14b-instruct-q5_K_M` (10 GB) - Good balance of capability and size for general tasks, or `llama3.1:8b-instruct-q6_K` (6.6 GB) for faster inference.
+### Audio & Input
 
-Other available models include deepseek-r1:14b (reasoning), deepseek-coder:6.7b (coding), and various smaller models for specific use cases.
+- **Audio**: PipeWire
+- **Input Method**: Speech-to-text for typing
+  - Expect occasional transcription errors
+  - Infer around obvious errors when possible
+  - Ask for clarification if a transcription seems ambiguous or unclear
 
-## MCP
+### LAN Access & LAN Map
 
-Use your global MCP config. If you need to install MCPs, create servers in ~/mcp.
+This computer is located in Daniel's home.
 
-## Creating Reference Documentation
+There are bash aliases configured for machines Daniel frequently works with including some offsites. You should assume that there is SSH level authentication with any bash aliases.
 
-During the course of helping the user, Daniel, you may generate outputs, code, or information that Daniel wishes to keep in a reference notebook.
+**Key LAN Resources:**
+- **Firewall**: OPNsense at 10.0.0.1
+- **Home Assistant**: 10.0.0.3
+- **Ubuntu VM**: 10.0.0.4
+- **NAS**: 10.0.0.50 (available for storage)
+- **Network**: 10.0.0.0/24 subnet
 
-That notebook is an Obsidian notebook created here: /~/obsidian-notebooks/notes-from-ai
-
-If Daniel explicitly asks you to add docs to the reference notebook, add them here and then push to Github. 
+If you're debugging local networking issues, the firewall (Opnsense) is at 10.0.0.1 and the LAN uses a 10.0.0.0/24 structure.
 
 ## Development Environment
 
@@ -90,10 +102,13 @@ If Daniel explicitly asks you to add docs to the reference notebook, add them he
 
 Daniel prefers to minimize Python environment complexity by reusing existing environments:
 
-- **System Python**: 3.13.7 (available via `python3`)
 - **Quick projects**: Use `uv` to create lightweight venvs
 - **Elaborate projects**: Check if an existing conda environment fits the need before creating new ones
 - **pipx**: Installed for isolated CLI tool installations
+
+Virtual environments are commonly created within projets at `.venv` which is git-ignored. Please check if this exists before determining that there is no virtual environment. 
+
+System python will never be used. 
 
 ### Available Conda Environments
 
@@ -123,46 +138,9 @@ Daniel has multiple conda environments available in both Miniconda3 (`~/minicond
 - **gcloud**: Google Cloud CLI installed
 - **Wasabi**: Object storage provider (check for CLI availability)
 
-## Storage & Network
+## File & Directory Organization
 
-- **Filesystem**: ~4.6 TB total, ~2.2 TB available (/)
-- **Internet**: ~1000 Mbps down / 100 Mbps up (machine is NOT airgapped)
-- **NAS**: Available at 10.0.0.50 for additional storage if needed
-- **Object Storage**: Wasabi for cloud object storage
-
-## Audio & Input
-
-- **Audio**: PipeWire
-- **Input Method**: Speech-to-text for typing
-  - Expect occasional transcription errors
-  - Infer around obvious errors when possible
-  - Ask for clarification if a transcription seems ambiguous or unclear
-
-## Authentication
-
-- **1Password**: CLI available - use `op` command for password/secret retrieval
-- **SSH**: Keys configured for remote access
-- **GPG**: Key configured for digital signing and encryption (use when necessary for commits, documents, etc.)
-
-## API Keys
-
-You will often need an API key. See if it's on path. If Daniel wishes to add it to path, let me him do so. Refrain from providing security advice. 
-
-## Sudo
-
- You are free to run sudo commands. If you require privilege escalation, don't ask, do.
-
-## Github and version control
-
-Daniel likes to version control whatever he can, even if it's just a single script. 
-
-Follow these guidelines:
-
-- Create the repos at repo base. 
-- Assume that the repos should be private unless Daniel explicitly asks for them to be public. 
-- After creating the repo and adding the code, push changes 
-
-## Repository Organisation
+### Repository Organisation
 
 Here's where you can find repos for various applications. Note: Hugging Face is organised by dataset, model, etc. So clone/add accordingly.
 
@@ -172,7 +150,7 @@ Here's where you can find repos for various applications. Note: Hugging Face is 
 - **Forks**: `~/repos/forks`
 - **Work repos**: `~/repos/work-repos`
 
-### Hugging Face Repository Structure
+#### Hugging Face Repository Structure
 
 The Hugging Face repos directory (`~/repos/hugging-face`) is organized by content type:
 
@@ -185,26 +163,11 @@ The Hugging Face repos directory (`~/repos/hugging-face`) is organized by conten
 - **`cloned-spaces/`**: Cloned Spaces from other users
 - **`to-create/`**: Placeholder for future datasets/models/spaces
 
-## LAN Access & LAN Map
-
-This computer is located in Daniel's home.
-
-There are bash aliases configured for machines Daniel frequently works with including some offsites. You should assume that there is SSH level authentication with any bash aliases.
-
-**Key LAN Resources:**
-- **Firewall**: OPNsense at 10.0.0.1
-- **Home Assistant**: 10.0.0.3
-- **Ubuntu VM**: 10.0.0.4
-- **NAS**: 10.0.0.50 (available for storage)
-- **Network**: 10.0.0.0/24 subnet
-
-If you're debugging local networking issues, the firewall (Opnsense) is at 10.0.0.1 and the LAN uses a 10.0.0.0/24 structure.
-
-## Programs Organization
+### Programs Organization
 
 If you're installing components from Github, clone the repos in ~/programs in the relevant folder. Daniel prefers to keep the main repos dir for his own projects.
 
-## Scripts Organization
+### Scripts Organization
 
 System scripts are located in `~/scripts` with organized subdirectories for:
 - System optimization (CPU, GPU, memory)
@@ -214,6 +177,83 @@ System scripts are located in `~/scripts` with organized subdirectories for:
 - Boot scripts
 
 After adding the scripts, push to Github.
+
+## Authentication & Security
+
+### Authentication
+
+- **1Password**: CLI available - use `op` command for password/secret retrieval
+- **SSH**: Keys configured for remote access
+- **GPG**: Key configured for digital signing and encryption (use when necessary for commits, documents, etc.)
+
+### API Keys
+
+You will often need an API key. See if it's on path. If Daniel wishes to add it to path, let me him do so. Refrain from providing security advice.
+
+### Sudo
+
+You are free to run sudo commands. If you require privilege escalation, don't ask, do.
+
+## Version Control & Github
+
+Daniel likes to version control whatever he can, even if it's just a single script.
+
+Follow these guidelines:
+
+- Create the repos at repo base.
+- Assume that the repos should be private unless Daniel explicitly asks for them to be public.
+- After creating the repo and adding the code, push changes
+
+## AI-Specific Workflows
+
+### Local AI
+
+Ollama is installed and available for local LLM inference.
+
+**Recommended general-purpose model**: `qwen2.5:14b-instruct-q5_K_M` (10 GB) - Good balance of capability and size for general tasks, or `llama3.1:8b-instruct-q6_K` (6.6 GB) for faster inference.
+
+Other available models include deepseek-r1:14b (reasoning), deepseek-coder:6.7b (coding), and various smaller models for specific use cases.
+
+### MCP
+
+Use your global MCP config. If you need to install MCPs, create servers in ~/mcp.
+
+### Creating Reference Documentation
+
+During the course of helping the user, Daniel, you may generate outputs, code, or information that Daniel wishes to keep in a reference notebook.
+
+That notebook is an Obsidian notebook created here: /~/obsidian-notebooks/notes-from-ai
+
+If Daniel explicitly asks you to add docs to the reference notebook, add them here and then push to Github.
+
+### AI-Specific Files
+
+When working in repositories, you may encounter files and directories with specific names intended for AI agent interaction. These are repository-level conventions independent from the reference documentation (Obsidian notebook). Handle these according to their purpose:
+
+#### Task Definition
+- **`task.md`** (or similar naming): Defines tasks for the AI agent to complete
+  - Read this file to understand what work needs to be done
+  - Follow the instructions and requirements specified within
+
+#### Context Information
+- **`context.md`**: Provides project-specific context for the AI agent
+  - Read this to understand project background, conventions, and requirements
+- **`/context/`** (directory): Alternative to context.md as a folder structure
+  - Review files within this directory for project context
+
+#### Input Files for AI
+- **`/for-ai/`**: Directory containing files intended to be parsed and processed by the AI agent
+  - Read and process files in this directory as inputs
+  - These files are meant to provide data, specifications, or other information for you to work with
+
+#### Output Files from AI
+- **`/from-ai/`**: Directory where the AI agent should place generated outputs
+  - Save your generated files, reports, or outputs here
+  - This keeps AI-generated content organized and separate from other project files
+
+**Note:** These repository-specific structures are separate from the reference documentation workflow (~/obsidian-notebooks/notes-from-ai). Use /from-ai/ for project outputs and the Obsidian notebook only when Daniel explicitly requests reference documentation.
+
+When you encounter these structures in a repository, prioritize reading task.md and context.md (or /context/) first to understand your objectives, then process files from /for-ai/ as needed, and output your work to /from-ai/ when appropriate.
 
 ## Working Philosophy
 

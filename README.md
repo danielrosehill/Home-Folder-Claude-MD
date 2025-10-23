@@ -8,21 +8,28 @@ This repository provides version control for `~/CLAUDE.md`, which contains hiera
 
 ## How It Works
 
-The `CLAUDE.md` file in this repository is a symbolic link to `~/CLAUDE.md`. This means:
-- Editing `CLAUDE.md` in this repo automatically updates `~/CLAUDE.md`
-- Changes to `~/CLAUDE.md` are immediately reflected in this repo
-- You can commit and push changes to version control from this repo
-- Claude Code works seamlessly with the symlink
+This repository maintains the canonical version of `CLAUDE.md`. Use the provided `sync.sh` script to sync changes from the repository to `~/CLAUDE.md`.
 
 ## Workflow
 
-1. **Edit the file**: Open `CLAUDE.md` in this repository or edit `~/CLAUDE.md` directly
-2. **Commit changes**: Use git to commit your changes from this repository
-3. **Push to GitHub**: Push commits to maintain version history
+1. **Edit the file**: Make changes to `CLAUDE.md` in this repository
+2. **Sync to home folder**: Run `./sync.sh` to copy the file to `~/CLAUDE.md`
+3. **Commit changes**: Use git to commit your changes
+4. **Push to GitHub**: Push commits to maintain version history
+
+## Sync Script
+
+The `sync.sh` script performs a one-way sync from the repository to your home folder:
+
+```bash
+./sync.sh
+```
+
+This copies `CLAUDE.md` from the repository to `~/CLAUDE.md`, ensuring your home folder always has the latest version-controlled configuration.
 
 ## Benefits
 
 - Full version control history of your Claude Code configuration
 - Easy rollback to previous configurations
 - Ability to track changes over time
-- Can edit from either location (repo or home folder)
+- Simple one-way sync workflow keeps things predictable
