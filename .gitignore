@@ -1,0 +1,4 @@
+# Scripts for syncing CLAUDE.md (local use only)
+copy-claude.sh
+pull-claude.sh
+push-claude.sh
