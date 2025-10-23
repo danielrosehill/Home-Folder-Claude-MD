@@ -14,11 +14,24 @@ Daniel is based in Israel, so consider timezone (IST/IDT, UTC+2/+3), locale, and
 - **Business**: DSR Holdings (dsrholdings.cloud)
 - **Public email**: public@danielrosehill.com (can be shared publicly)
 
+**Who Daniel Is:**
+
+Daniel is a technology communications specialist and automation expert based in Jerusalem, Israel. His professional focus bridges AI systems, workflow orchestration, and strategic communications for enhanced business performance.
+
+Core expertise includes:
+- AI & automation (LLMs, prompt engineering, multi-agent orchestration)
+- Technical communications (making complex concepts accessible)
+- Workflow automation and agent orchestration
+- Open source development (active on GitHub, NPM, Hugging Face)
+
+Daniel creates AI tools, system prompts, and technical documentation while working on data analysis, visualization, and automation projects. He's open to consulting, technical documentation projects, and workflow automation implementations.
+
 ## User Preferences
 
 - **Shell**: Bash
 - **Editor**: nano (preferred for quick edits)
-- **IDE**: VS Code 
+- **IDE**: VS Code
+- **Work Organization**: Daniel keeps business and personal work/files/projects separate and works with a few Google Workspaces for different contexts 
 
 ## Your purpose
 
@@ -91,6 +104,20 @@ Daniel has multiple conda environments available in both Miniconda3 (`~/minicond
 - **Node.js**: Managed via nvm (currently v22.18.0)
 - **Containerization**: Docker and Podman both available
 
+### Programming Languages & SDKs
+
+- **Java**: OpenJDK 21.0.6 (Temurin)
+- **Go**: 1.24.2
+- **Rust**: 1.84.1 (rustc and cargo available)
+- **Ruby**: 3.3.7
+- **C/C++**: GCC 14.2.0 (gcc and g++ available)
+
+### Build Tools & Infrastructure
+
+- **Make**: Available
+- **CMake**: 3.31.6
+- **Ansible**: Core 2.18.1
+
 ### Cloud CLIs
 
 - **gcloud**: Google Cloud CLI installed
@@ -145,6 +172,19 @@ Here's where you can find repos for various applications. Note: Hugging Face is 
 - **Forks**: `~/repos/forks`
 - **Work repos**: `~/repos/work-repos`
 
+### Hugging Face Repository Structure
+
+The Hugging Face repos directory (`~/repos/hugging-face`) is organized by content type:
+
+- **`datasets/`**: Datasets with `public/` and `private/` subdirectories
+- **`models/`**: ML models (e.g., Daniel-Image-Generator)
+- **`spaces/`**: Hugging Face Spaces with `public/` and `private/` subdirectories
+- **`workspaces/`**: Active workspace projects (e.g., daniel-lora)
+- **`repos/`**: General Hugging Face repos (e.g., invokeai-project, ezra-finetune-docker)
+- **`cloned-repos/`**: Third-party Hugging Face repositories
+- **`cloned-spaces/`**: Cloned Spaces from other users
+- **`to-create/`**: Placeholder for future datasets/models/spaces
+
 ## LAN Access & LAN Map
 
 This computer is located in Daniel's home.
@@ -153,8 +193,9 @@ There are bash aliases configured for machines Daniel frequently works with incl
 
 **Key LAN Resources:**
 - **Firewall**: OPNsense at 10.0.0.1
-- **NAS**: 10.0.0.50 (available for storage)
+- **Home Assistant**: 10.0.0.3
 - **Ubuntu VM**: 10.0.0.4
+- **NAS**: 10.0.0.50 (available for storage)
 - **Network**: 10.0.0.0/24 subnet
 
 If you're debugging local networking issues, the firewall (Opnsense) is at 10.0.0.1 and the LAN uses a 10.0.0.0/24 structure.
