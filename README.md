@@ -1,5 +1,10 @@
 # Home-Folder-Claude-MD
 
+![Claude Code](https://img.shields.io/badge/Claude%20Code-Enabled-blueviolet?style=for-the-badge&logo=anthropic)
+
+[![Claude Code Projects Index](https://img.shields.io/badge/Claude%20Code%20Projects-Index-blue?style=flat-square&logo=github)](https://github.com/danielrosehill/Claude-Code-Repos-Index)
+[![GitHub Master Index](https://img.shields.io/badge/GitHub-Master%20Index-green?style=flat-square&logo=github)](https://github.com/danielrosehill/Github-Master-Index)
+
 Version control repository for the home folder CLAUDE.md configuration file.
 
 ## Overview
